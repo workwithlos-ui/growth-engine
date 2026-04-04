@@ -1,82 +1,68 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.04] py-16">
+    <footer className="relative py-16 overflow-hidden" style={{ background: "#0a0a0a" }}>
+      <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)" }} />
+
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-6 h-6 bg-[#22c55e] flex items-center justify-center">
-                <span className="text-[#0a0a0a] font-bold text-[11px]">P</span>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+          {/* Logo + tagline */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-3">
+              <div
+                className="w-7 h-7 flex items-center justify-center"
+                style={{ background: "linear-gradient(135deg, #22c55e, #16a34a)", boxShadow: "0 0 16px rgba(34,197,94,0.3)" }}
+              >
+                <span className="text-[#0a0a0a] font-bold text-[12px]" style={{ fontFamily: "Syne, sans-serif" }}>P</span>
               </div>
-              <span className="font-semibold text-[14px] tracking-[-0.02em]">PAID</span>
+              <span className="font-bold text-[15px] tracking-[-0.03em] text-white" style={{ fontFamily: "Syne, sans-serif" }}>PAID</span>
             </div>
-            <p className="mt-4 text-[13px] leading-relaxed text-[#3f3f3f] max-w-[200px]">
-              AI-powered commercial intelligence for consultants, investors, and funds.
+            <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.25)" }}>
+              Commercial intelligence for operators.
             </p>
           </div>
 
-          {/* Product */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.1em] text-[#525252] font-medium mb-4">
-              Product
-            </h4>
-            <ul className="space-y-2.5">
-              {["How it works", "What you get", "Pricing"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-[13px] text-[#3f3f3f] hover:text-[#a3a3a3] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.1em] text-[#525252] font-medium mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5">
-              {["Security", "Privacy", "Terms"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-[13px] text-[#3f3f3f] hover:text-[#a3a3a3] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="text-[11px] uppercase tracking-[0.1em] text-[#525252] font-medium mb-4">
-              Connect
-            </h4>
-            <ul className="space-y-2.5">
-              {["Contact", "Book a demo"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-[13px] text-[#3f3f3f] hover:text-[#a3a3a3] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Links */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              { label: "How it works", href: "#how-it-works" },
+              { label: "Solutions", href: "#solutions" },
+              { label: "Pricing", href: "#pricing" },
+              { label: "Privacy", href: "#" },
+              { label: "Terms", href: "#" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-[13px] transition-colors duration-200"
+                style={{ color: "rgba(255,255,255,0.25)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.25)"; }}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-[12px] text-[#2a2a2a]">
-            &copy; 2026 PAID. All rights reserved.
-          </span>
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 pt-8"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        >
+          <p className="text-[12px]" style={{ color: "rgba(255,255,255,0.18)" }}>
+            &copy; {new Date().getFullYear()} PAID. All rights reserved.
+          </p>
           <a
             href="https://LosSilva.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[12px] text-[#3f3f3f] hover:text-[#22c55e] transition-colors"
+            className="text-[12px] transition-colors duration-200"
+            style={{ color: "rgba(255,255,255,0.2)" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(34,197,94,0.7)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.2)"; }}
           >
-            Powered by ELIOS
+            Powered by{" "}
+            <span className="font-semibold" style={{ fontFamily: "Syne, sans-serif" }}>ELIOS</span>
           </a>
         </div>
       </div>
