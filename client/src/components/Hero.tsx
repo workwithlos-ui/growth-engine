@@ -188,7 +188,7 @@ export default function Hero() {
               transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s",
             }}
           >
-            PAID gives your business a GRIP score - Growth, Revenue, Infrastructure, Performance - and tells you exactly what to fix first.
+            PAID gives your business a GRIP score - Gravity, Reach, Impact, Proof - and tells you exactly what to fix first.
             <span className="block mt-2 text-[15px]" style={{ color: "rgba(255,255,255,0.3)" }}>
               In 2 minutes. Powered by AI. No spreadsheets required.
             </span>
