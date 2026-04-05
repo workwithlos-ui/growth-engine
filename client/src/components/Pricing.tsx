@@ -1,14 +1,15 @@
 import Reveal from "./Reveal";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Zap } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    price: "$97",
-    period: "/mo",
-    tagline: "For solo consultants getting started.",
-    features: ["10 diagnostics per month", "Full health score and subscores", "Bottleneck identification", "PDF export", "Email support"],
-    cta: "Start with Starter",
+    name: "Free",
+    price: "$0",
+    period: "",
+    tagline: "One assessment. See if it's worth it.",
+    features: ["1 full GRIP assessment", "Overall score + 4-pillar breakdown", "Top bottleneck identification", "3 quick wins", "Revenue-at-risk estimate"],
+    cta: "Get your free GRIP score",
+    ctaHref: "#assess",
     featured: false,
   },
   {
@@ -16,8 +17,9 @@ const plans = [
     price: "$297",
     period: "/mo",
     tagline: "For agencies and active advisors.",
-    features: ["Unlimited diagnostics", "Full health score and subscores", "Bottleneck identification", "Peer benchmarking", "30/60/90 day action plan", "White-label PDF export", "Priority support"],
-    cta: "Start with Pro",
+    features: ["Unlimited assessments", "Full GRIP score + deep dive", "Peer benchmarking", "30/60/90 day action plans", "White-label PDF export", "Client-ready reports", "Priority support"],
+    cta: "Start 7-day free trial",
+    ctaHref: "#",
     featured: true,
   },
   {
@@ -25,8 +27,9 @@ const plans = [
     price: "Custom",
     period: "",
     tagline: "For funds and large portfolio teams.",
-    features: ["Unlimited diagnostics", "Portfolio-level dashboard", "Custom benchmarking", "API access", "Dedicated onboarding", "SLA and custom contracts"],
+    features: ["Everything in Pro", "Portfolio-level dashboard", "Custom benchmarking", "API access", "Dedicated onboarding", "SLA and custom contracts"],
     cta: "Talk to us",
+    ctaHref: "#",
     featured: false,
   },
 ];
@@ -49,13 +52,13 @@ export default function Pricing() {
         <Reveal delay={100}>
           <h2 className="font-black leading-[1.05] tracking-[-0.03em] mb-4 max-w-lg"
             style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)", background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.65) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            Simple pricing.<br />No surprises.
+            Your first assessment<br />is free. Seriously.
           </h2>
         </Reveal>
 
         <Reveal delay={150}>
           <p className="text-[16px] mb-16 max-w-md" style={{ color: "rgba(255,255,255,0.35)" }}>
-            Start free for 7 days. Cancel any time.
+            See the value before you pay anything. No credit card. No signup. Just answers.
           </p>
         </Reveal>
 
@@ -122,26 +125,27 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <a href="#"
+                <a href={plan.ctaHref}
                   className="group/btn relative overflow-hidden flex items-center justify-center gap-2 w-full py-3 text-[13px] font-bold transition-all duration-300"
                   style={{
-                    background: plan.featured ? "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)" : "rgba(255,255,255,0.06)",
-                    color: plan.featured ? "#0a0a0a" : "rgba(255,255,255,0.7)",
+                    background: plan.featured ? "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)" : plan.name === "Free" ? "rgba(34,197,94,0.1)" : "rgba(255,255,255,0.06)",
+                    color: plan.featured ? "#0a0a0a" : plan.name === "Free" ? "#4ade80" : "rgba(255,255,255,0.7)",
                     fontFamily: "Syne, sans-serif",
                     boxShadow: plan.featured ? "0 0 24px rgba(34,197,94,0.3)" : "none",
-                    border: plan.featured ? "none" : "1px solid rgba(255,255,255,0.1)",
+                    border: plan.featured ? "none" : plan.name === "Free" ? "1px solid rgba(34,197,94,0.2)" : "1px solid rgba(255,255,255,0.1)",
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
                     if (plan.featured) { el.style.boxShadow = "0 0 40px rgba(34,197,94,0.5)"; }
-                    else { el.style.background = "rgba(255,255,255,0.1)"; el.style.color = "rgba(255,255,255,0.9)"; }
+                    else { el.style.background = plan.name === "Free" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.1)"; }
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
                     if (plan.featured) { el.style.boxShadow = "0 0 24px rgba(34,197,94,0.3)"; }
-                    else { el.style.background = "rgba(255,255,255,0.06)"; el.style.color = "rgba(255,255,255,0.7)"; }
+                    else { el.style.background = plan.name === "Free" ? "rgba(34,197,94,0.1)" : "rgba(255,255,255,0.06)"; }
                   }}
                 >
+                  {plan.name === "Free" && <Zap size={11} />}
                   {plan.cta}
                   <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform duration-200" />
                 </a>
@@ -152,7 +156,7 @@ export default function Pricing() {
 
         <Reveal delay={400}>
           <p className="text-center text-[13px] mt-10" style={{ color: "rgba(255,255,255,0.2)" }}>
-            All plans include a 7-day free trial. No credit card required to start.
+            Pro includes a 7-day free trial. No credit card required to start.
           </p>
         </Reveal>
       </div>

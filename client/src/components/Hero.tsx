@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
-
-const HERO_ORB = "https://private-us-east-1.manuscdn.com/sessionFile/5KPPhIbbESHCUwf9yndhVI/sandbox/PbUp8Y6uFHjaeTh614VScQ-img-1_1775284522000_na1fn_aGVyby1vcmI.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNUtQUGhJYmJFU0hDVXdmOXluZGhWSS9zYW5kYm94L1BiVXA4WTZ1RkhqYWVUaDYxNFZTY1EtaW1nLTFfMTc3NTI4NDUyMjAwMF9uYTFmbl9hR1Z5YnkxdmNtSS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=soQCxdndz~jGKnO6eFASOQ35~aEPBaQuLJP32VDCzuwL6dCIps9hTyL7bEQTH6UR-w3eH1Mx-6ekSgPClJKhBJ9a1XkdRX2MJ0FPIHwa2MCRw-ttzFLZYGlBA7gbXGVCKQAZJ5CG24EJJLw8bola3ZVWkuOxU9Ahy94jt9aEYQbYap8znTfZeu99CEEGXU0D8aLyutWRHVf8fGvSzqS6NZ8znGD-p8HO-tt0mQF9noy42~Ez-TPMgLgShrUhv2lkK5RKqaXnIW0Yl03z105JIVTtPfG56OKx75H4CUklbKDNTviaTZLnp8hRp4Ot8WKdFhAtcPRBd8~HLX3SR6Tk7g__";
+import { ArrowRight, ChevronDown, Zap } from "lucide-react";
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -60,32 +58,72 @@ export default function Hero() {
         }}
       />
 
-      {/* Orb image - parallax */}
+      {/* Floating GRIP score preview - parallax */}
       <div
-        className="absolute right-[-5%] top-[5%] w-[55%] max-w-[700px] pointer-events-none select-none hidden md:block"
+        className="absolute right-[-2%] top-[12%] w-[45%] max-w-[520px] pointer-events-none select-none hidden lg:block"
         style={{
           transform: `translate(${parallaxX * 0.5}px, ${parallaxY * 0.5}px)`,
           transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <img
-          src={HERO_ORB}
-          alt=""
-          className="w-full h-full object-contain float"
-          style={{ opacity: 0.65, mixBlendMode: "screen" }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(34,197,94,0.12) 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
+        <div className="relative p-6 float" style={{
+          background: "rgba(255,255,255,0.03)",
+          border: "1px solid rgba(34,197,94,0.15)",
+          backdropFilter: "blur(20px)",
+          boxShadow: "0 0 80px rgba(34,197,94,0.08), 0 40px 80px rgba(0,0,0,0.4)",
+        }}>
+          {/* Mini GRIP scores */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-2 h-2 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 8px #22c55e" }} />
+            <span className="text-[11px] font-semibold tracking-[0.1em] uppercase" style={{ color: "#4ade80", fontFamily: "DM Mono, monospace" }}>GRIP Score Preview</span>
+          </div>
+          <div className="text-center mb-5">
+            <span className="text-[56px] font-black tracking-[-0.04em]" style={{
+              fontFamily: "Syne, sans-serif",
+              background: "linear-gradient(135deg, #22c55e 0%, #4ade80 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 0 30px rgba(34,197,94,0.4))",
+            }}>72</span>
+            <span className="text-[14px] text-white/30 block" style={{ fontFamily: "DM Mono, monospace" }}>/100</span>
+          </div>
+          <div className="space-y-3">
+            {[
+              { letter: "G", label: "Growth", score: 81, color: "#22c55e" },
+              { letter: "R", label: "Revenue", score: 68, color: "#fbbf24" },
+              { letter: "I", label: "Infrastructure", score: 74, color: "#22c55e" },
+              { letter: "P", label: "Performance", score: 65, color: "#f87171" },
+            ].map((item) => (
+              <div key={item.letter} className="flex items-center gap-3">
+                <span className="w-7 h-7 flex items-center justify-center text-[12px] font-black" style={{
+                  background: `${item.color}15`,
+                  border: `1px solid ${item.color}30`,
+                  color: item.color,
+                  fontFamily: "Syne, sans-serif",
+                }}>{item.letter}</span>
+                <span className="text-[12px] text-white/50 w-24" style={{ fontFamily: "DM Sans, sans-serif" }}>{item.label}</span>
+                <div className="flex-1 h-1.5 relative overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+                  <div className="absolute left-0 top-0 h-full" style={{
+                    width: `${item.score}%`,
+                    background: `linear-gradient(90deg, ${item.color}, ${item.color}aa)`,
+                    boxShadow: `0 0 8px ${item.color}40`,
+                  }} />
+                </div>
+                <span className="text-[13px] font-bold w-8 text-right" style={{ color: item.color, fontFamily: "Syne, sans-serif" }}>{item.score}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 pt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <p className="text-[11px] text-white/25" style={{ fontFamily: "DM Mono, monospace" }}>
+              ⚠ Bottleneck: Revenue conversion leaking $18K/mo
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Content */}
       <div className="container relative z-10 pt-28 pb-20">
-        <div className="max-w-[680px]">
+        <div className="max-w-[720px]">
           {/* Badge */}
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 text-[11px] font-semibold tracking-[0.12em] uppercase"
@@ -99,11 +137,8 @@ export default function Hero() {
               fontFamily: "DM Mono, monospace",
             }}
           >
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ background: "#22c55e", boxShadow: "0 0 8px #22c55e" }}
-            />
-            AI Commercial Intelligence
+            <Zap size={10} />
+            AI Business Intelligence
           </div>
 
           {/* Headline */}
@@ -111,7 +146,7 @@ export default function Hero() {
             className="font-black leading-[0.93] tracking-[-0.04em] mb-7"
             style={{
               fontFamily: "Syne, sans-serif",
-              fontSize: "clamp(3.2rem, 7vw, 6rem)",
+              fontSize: "clamp(3rem, 6.5vw, 5.5rem)",
               opacity: visible ? 1 : 0,
               transform: visible ? "none" : "translateY(40px)",
               transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s",
@@ -125,36 +160,38 @@ export default function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Turn client
+              Find where your
               <br />
-              numbers into
+              business is
               <br />
             </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%)",
+                background: "linear-gradient(135deg, #f87171 0%, #fb923c 50%, #fbbf24 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                filter: "drop-shadow(0 0 40px rgba(34,197,94,0.5))",
+                filter: "drop-shadow(0 0 40px rgba(248,113,113,0.4))",
               }}
             >
-              a verdict.
+              leaking money.
             </span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className="text-[17px] leading-relaxed mb-10 max-w-[480px]"
+            className="text-[18px] leading-relaxed mb-10 max-w-[520px]"
             style={{
-              color: "rgba(255,255,255,0.42)",
+              color: "rgba(255,255,255,0.45)",
               opacity: visible ? 1 : 0,
               transform: visible ? "none" : "translateY(30px)",
               transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s",
             }}
           >
-            PAID scores any business across revenue, spend, conversion, and retention.
-            You get the bottleneck, the benchmark, and the next move.
+            PAID gives your business a GRIP score — Growth, Revenue, Infrastructure, Performance — and tells you exactly what to fix first.
+            <span className="block mt-2 text-[15px]" style={{ color: "rgba(255,255,255,0.3)" }}>
+              In 2 minutes. Powered by AI. No spreadsheets required.
+            </span>
           </p>
 
           {/* CTAs */}
@@ -167,7 +204,7 @@ export default function Hero() {
             }}
           >
             <a
-              href="#pricing"
+              href="#assess"
               className="group relative overflow-hidden inline-flex items-center gap-2.5 text-[14px] font-bold px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
@@ -182,13 +219,13 @@ export default function Hero() {
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px rgba(34,197,94,0.4), 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25)";
               }}
             >
-              <span className="relative z-10">Run a diagnostic</span>
+              <span className="relative z-10">Get your free GRIP score</span>
               <ArrowRight size={14} className="relative z-10 group-hover:translate-x-1 transition-transform duration-200" />
               <div className="absolute inset-0 shimmer" />
             </a>
 
             <a
-              href="#what-you-get"
+              href="#demo"
               className="inline-flex items-center gap-2.5 text-[14px] font-medium px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "rgba(255,255,255,0.04)",
@@ -207,7 +244,7 @@ export default function Hero() {
                 (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)";
               }}
             >
-              See what you get
+              See a sample report
             </a>
           </div>
 
@@ -222,9 +259,9 @@ export default function Hero() {
             }}
           >
             {[
-              { value: "Score", label: "in minutes" },
-              { value: "Benchmark", label: "against peers" },
-              { value: "Export", label: "client-ready report" },
+              { value: "2 min", label: "assessment" },
+              { value: "GRIP", label: "4-pillar score" },
+              { value: "AI", label: "powered insights" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-2">
                 <span

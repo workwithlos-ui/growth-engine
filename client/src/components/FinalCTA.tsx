@@ -1,5 +1,5 @@
 import Reveal from "./Reveal";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 
 export default function FinalCTA() {
   return (
@@ -26,8 +26,8 @@ export default function FinalCTA() {
         <Reveal>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 text-[11px] font-semibold tracking-[0.12em] uppercase"
             style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", color: "#4ade80", fontFamily: "DM Mono, monospace" }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 8px #22c55e" }} />
-            Ready when you are
+            <Zap size={10} />
+            Free. No signup required.
           </div>
         </Reveal>
 
@@ -35,23 +35,23 @@ export default function FinalCTA() {
           <h2 className="font-black leading-[0.95] tracking-[-0.04em] mb-6 mx-auto"
             style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", maxWidth: "700px" }}>
             <span style={{ background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              Stop guessing.<br />
-            </span>
-            <span style={{ background: "linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", filter: "drop-shadow(0 0 30px rgba(34,197,94,0.4))" }}>
-              Start knowing.
+              Stop guessing<br />where you're
+            </span>{" "}
+            <span style={{ background: "linear-gradient(135deg, #f87171 0%, #fb923c 50%, #fbbf24 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", filter: "drop-shadow(0 0 30px rgba(248,113,113,0.3))" }}>
+              losing money.
             </span>
           </h2>
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="text-[17px] leading-relaxed mb-10 mx-auto max-w-[460px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-            Run your first diagnostic in minutes. No setup. No integration. Just answers.
+          <p className="text-[17px] leading-relaxed mb-10 mx-auto max-w-[480px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+            Get your GRIP score in 2 minutes. Find the leak. Fix it first. It's free — no credit card, no signup, no catch.
           </p>
         </Reveal>
 
         <Reveal delay={300}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="#pricing"
+            <a href="#assess"
               className="group relative overflow-hidden inline-flex items-center gap-2.5 text-[15px] font-bold px-8 py-4 transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
@@ -62,22 +62,22 @@ export default function FinalCTA() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 0 60px rgba(34,197,94,0.65), 0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 0 40px rgba(34,197,94,0.45), 0 8px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25)"; }}
             >
-              <span className="relative z-10">Start free for 7 days</span>
+              <span className="relative z-10">Get my free GRIP score</span>
               <ArrowRight size={15} className="relative z-10 group-hover:translate-x-1 transition-transform duration-200" />
               <div className="absolute inset-0 shimmer" />
             </a>
-            <a href="#" className="inline-flex items-center gap-2 text-[14px] font-medium transition-colors"
+            <a href="#demo" className="inline-flex items-center gap-2 text-[14px] font-medium transition-colors"
               style={{ color: "rgba(255,255,255,0.35)" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.35)"; }}>
-              Book a demo instead
+              See a sample report first
             </a>
           </div>
         </Reveal>
 
         <Reveal delay={400}>
           <div className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-10" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-            {["No credit card required", "Cancel any time", "Setup in under 5 minutes"].map((item) => (
+            {["AI-powered analysis", "Results in 2 minutes", "100% free"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <svg width="12" height="9" viewBox="0 0 12 9" fill="none">
                   <path d="M1 4.5L4.5 8L11 1" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

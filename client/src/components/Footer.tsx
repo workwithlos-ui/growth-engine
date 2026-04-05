@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="relative py-16 overflow-hidden" style={{ background: "#0a0a0a" }}>
-      <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)" }} />
+    <footer className="relative py-16 overflow-hidden" style={{ background: "#060606" }}>
+      <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent)" }} />
 
       <div className="container">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
@@ -17,7 +17,7 @@ export default function Footer() {
               <span className="font-bold text-[15px] tracking-[-0.03em] text-white" style={{ fontFamily: "Syne, sans-serif" }}>PAID</span>
             </div>
             <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.25)" }}>
-              Commercial intelligence for operators.
+              Find where your business is leaking money.
             </p>
           </div>
 
@@ -25,10 +25,10 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-8 gap-y-3">
             {[
               { label: "How it works", href: "#how-it-works" },
-              { label: "Solutions", href: "#solutions" },
+              { label: "GRIP Framework", href: "#what-you-get" },
+              { label: "Demo", href: "#demo" },
+              { label: "Get GRIP Score", href: "#assess" },
               { label: "Pricing", href: "#pricing" },
-              { label: "Privacy", href: "#" },
-              { label: "Terms", href: "#" },
             ].map((link) => (
               <a
                 key={link.label}

@@ -1,13 +1,11 @@
 import Reveal from "./Reveal";
-import { ClipboardList, Search, BarChart3, FileText } from "lucide-react";
-
-const DATA_FLOW = "https://d2xsxph8kpxj0f.cloudfront.net/91190584/B2BudScCdEmDN3qqoK5xj2/data-flow-viz-fdjBAEQB8uiCFHGeQMa5ER.webp";
+import { ClipboardList, Cpu, BarChart3, Rocket } from "lucide-react";
 
 const steps = [
-  { num: "01", icon: ClipboardList, title: "Input the numbers", desc: "Enter revenue, funnel metrics, ad spend, pricing, and sales data." },
-  { num: "02", icon: Search, title: "Find the bottleneck", desc: "PAID scores the business across six categories and pinpoints what is holding it back." },
-  { num: "03", icon: BarChart3, title: "Benchmark it", desc: "Compare performance against the right peer set and industry context." },
-  { num: "04", icon: FileText, title: "Get the plan", desc: "Receive a verdict, a 30/60/90 day action plan, and a client-ready report." },
+  { num: "01", icon: ClipboardList, title: "Enter your numbers", desc: "Revenue, expenses, customers, channels. Takes 2 minutes. No spreadsheets needed." },
+  { num: "02", icon: Cpu, title: "AI analyzes everything", desc: "Our engine scores your business across Growth, Revenue, Infrastructure, and Performance." },
+  { num: "03", icon: BarChart3, title: "See your GRIP score", desc: "Get a 0-100 score for each pillar, your top bottleneck, and revenue at risk." },
+  { num: "04", icon: Rocket, title: "Get your action plan", desc: "Receive a 30/60/90 day plan with specific quick wins to stop the bleeding." },
 ];
 
 export default function HowItWorks() {
@@ -15,12 +13,6 @@ export default function HowItWorks() {
     <section id="how-it-works" className="relative py-36 overflow-hidden" style={{ background: "#0a0a0a" }}>
       {/* Top line */}
       <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)" }} />
-
-      {/* Background data flow image */}
-      <div className="absolute inset-x-0 top-0 h-[400px] pointer-events-none overflow-hidden" style={{ opacity: 0.12 }}>
-        <img src={DATA_FLOW} alt="" className="w-full h-full object-cover" style={{ mixBlendMode: "screen", objectPosition: "center 30%" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, #0a0a0a 100%)" }} />
-      </div>
 
       <div className="container relative z-10">
         <Reveal>
@@ -35,13 +27,13 @@ export default function HowItWorks() {
         <Reveal delay={100}>
           <h2 className="font-black leading-[1.05] tracking-[-0.03em] mb-4 max-w-xl"
             style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)", background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.65) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            From raw numbers<br />to a decision.
+            From raw numbers<br />to a verdict in minutes.
           </h2>
         </Reveal>
 
         <Reveal delay={150}>
           <p className="text-[16px] mb-16 max-w-md" style={{ color: "rgba(255,255,255,0.35)" }}>
-            Four steps. One verdict. Everything you need to advise with confidence.
+            Four steps. One GRIP score. Everything you need to know where you're losing money.
           </p>
         </Reveal>
 
