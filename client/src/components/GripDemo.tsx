@@ -13,11 +13,11 @@ const SAMPLE_BUSINESS = {
     infrastructure: { score: 71, label: "Infrastructure", icon: Settings, insight: "Tech stack is adequate but disconnected. CRM, scheduling, and invoicing run on 3 separate platforms creating data blind spots.", color: "#fbbf24" },
     performance: { score: 69, label: "Performance", icon: Activity, insight: "Technician utilization is at 64% vs. 78% target. Route optimization and scheduling gaps are costing ~$12K/mo in lost billable hours.", color: "#fbbf24" },
   },
-  verdict: "Apex is a solid business with strong lead flow but is hemorrhaging revenue through pricing gaps and operational inefficiency. The biggest lever is fixing the revenue engine — proper pricing tiers and an upsell framework could add $40K+/mo within 90 days.",
-  bottleneck: "Revenue conversion — underpriced services and zero upsell system are leaving $34K/mo on the table",
+  verdict: "Apex is a solid business with strong lead flow but is hemorrhaging revenue through pricing gaps and operational inefficiency. The biggest lever is fixing the revenue engine - proper pricing tiers and an upsell framework could add $40K+/mo within 90 days.",
+  bottleneck: "Revenue conversion - underpriced services and zero upsell system are leaving $34K/mo on the table",
   quickWins: [
-    "Implement tiered pricing (Good/Better/Best) — potential +$15K/mo",
-    "Add post-service upsell checklist for technicians — potential +$8K/mo",
+    "Implement tiered pricing (Good/Better/Best) - potential +$15K/mo",
+    "Add post-service upsell checklist for technicians - potential +$8K/mo",
     "Fix Google Ads landing page (current CVR: 2.1% vs 4.5% benchmark)",
   ],
   revenueAtRisk: "$408K/year",
@@ -234,7 +234,7 @@ export default function GripDemo() {
                   <div className="p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
                     <span className="text-[11px] font-semibold tracking-[0.1em] uppercase block mb-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "DM Mono, monospace" }}>Peer Benchmark</span>
                     <p className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                      Compared to home service companies at $100K-$200K/mo revenue, Apex scores in the <strong className="text-white/70">42nd percentile</strong>. Primary gap is in revenue optimization — top-quartile peers average 32% higher ticket sizes.
+                      Compared to home service companies at $100K-$200K/mo revenue, Apex scores in the <strong className="text-white/70">42nd percentile</strong>. Primary gap is in revenue optimization - top-quartile peers average 32% higher ticket sizes.
                     </p>
                   </div>
                 </div>

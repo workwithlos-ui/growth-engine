@@ -20,7 +20,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { businessData } = req.body;
 
-    const systemPrompt = `You are PAID (Performance Analysis & Intelligence Diagnostic), an elite AI business assessment engine. You analyze businesses and produce a GRIP score — Growth, Revenue, Infrastructure, Performance.
+    const systemPrompt = `You are PAID (Performance Analysis & Intelligence Diagnostic), an elite AI business assessment engine. You analyze businesses and produce a GRIP score - Growth, Revenue, Infrastructure, Performance.
 
 You MUST return ONLY valid JSON with this exact structure (no markdown, no code blocks, no extra text):
 {
@@ -41,7 +41,7 @@ You MUST return ONLY valid JSON with this exact structure (no markdown, no code 
   "revenueAtRisk": "<estimated annual revenue at risk due to identified issues>"
 }
 
-Be specific, data-driven, and actionable. Reference the actual numbers provided. Scores should reflect real analysis — don't inflate scores. Be honest and direct. The scores should be calibrated: 90+ is exceptional, 70-89 is good, 50-69 needs work, below 50 is critical.`;
+Be specific, data-driven, and actionable. Reference the actual numbers provided. Scores should reflect real analysis - don't inflate scores. Be honest and direct. The scores should be calibrated: 90+ is exceptional, 70-89 is good, 50-69 needs work, below 50 is critical.`;
 
     const userPrompt = `Analyze this business and produce a GRIP score:
 

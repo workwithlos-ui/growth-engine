@@ -272,7 +272,7 @@ export default function AssessmentResults({ results, businessName, industry, onR
               <div>
                 <span className="text-[12px] font-semibold tracking-[0.1em] uppercase block mb-4" style={{ color: "#22c55e", fontFamily: "DM Mono, monospace" }}>
                   <Zap size={12} className="inline mr-1" />
-                  Quick Wins — Highest Impact, Lowest Effort
+                  Quick Wins - Highest Impact, Lowest Effort
                 </span>
                 <div className="space-y-3">
                   {results.quickWins.map((win, i) => (

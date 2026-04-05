@@ -85,7 +85,7 @@ export default function Problem() {
                   background: "rgba(34,197,94,0.04)",
                 }}
               >
-                PAID consolidates your business data into a single GRIP score and tells you exactly where you're leaking money — and what to fix first.
+                PAID consolidates your business data into a single GRIP score and tells you exactly where you're leaking money - and what to fix first.
               </p>
             </Reveal>
 

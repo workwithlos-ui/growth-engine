@@ -45,7 +45,7 @@ export default function FinalCTA() {
 
         <Reveal delay={200}>
           <p className="text-[17px] leading-relaxed mb-10 mx-auto max-w-[480px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-            Get your GRIP score in 2 minutes. Find the leak. Fix it first. It's free — no credit card, no signup, no catch.
+            Get your GRIP score in 2 minutes. Find the leak. Fix it first. It's free - no credit card, no signup, no catch.
           </p>
         </Reveal>
 
